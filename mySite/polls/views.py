@@ -26,7 +26,7 @@ def detail(request, question_id):
     """
     View to display the details of a specific poll question.
 
-    Args:
+    Args: 
         request: The HTTP request object.
         question_id (int): The id of the question to display.
 
