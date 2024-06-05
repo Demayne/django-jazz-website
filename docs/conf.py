@@ -41,13 +41,17 @@ setup_django()
 project = 'Django Consolidation Capstone'
 copyright = '2024, Demayne'
 author = 'Demayne'
-release = '00.00.01'
+release = '1.0.0'  # Updated version number
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 # Extensions to include in the Sphinx build process
-extensions = []
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.napoleon',
+]
 
 # Paths that contain templates, relative to this directory
 templates_path = ['_templates']

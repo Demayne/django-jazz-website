@@ -21,7 +21,7 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 # Copy the entire mysite project directory into the /app directory.
-COPY mySite/mySite /app/mySite
+COPY mySite /app/mySite
 
 # Copy the manage.py file into the /app directory.
 COPY mySite/manage.py /app/
