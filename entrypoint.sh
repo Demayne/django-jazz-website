@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Add the project directory to PYTHONPATH
+export PYTHONPATH="${PYTHONPATH}:/app"
+
 # Apply database migrations
 python manage.py migrate
 

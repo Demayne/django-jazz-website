@@ -1,0 +1,7 @@
+mySite Module
+=============
+
+.. automodule:: mySite
+    :members:
+    :undoc-members:
+    :show-inheritance:

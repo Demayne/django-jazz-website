@@ -1,8 +1,3 @@
-.. Django Consolidation Capstone documentation master file, created by
-   sphinx-quickstart on Mon May 27 22:32:22 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to Django Consolidation Capstone's documentation!
 =========================================================
 
@@ -10,7 +5,14 @@ Welcome to Django Consolidation Capstone's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   blog
+   contact
+   manage
+   mySite
+   personal
+   polls
+   user_auth
+   modules
 
 Indices and tables
 ==================
