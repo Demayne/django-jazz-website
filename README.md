@@ -34,13 +34,19 @@ To set up the project on your local machine, follow these steps:
     pip install -r requirements.txt
     ```
 
-4. Apply migrations:
+4. Navigate to the `mySite` directory:
+
+    ```bash
+    cd mySite
+    ```    
+
+5. Apply migrations:
 
     ```bash
     python manage.py migrate
     ```
 
-5. Create a superuser to access the Django admin interface:
+6. Create a superuser to access the Django admin interface:
 
     ```bash
     python manage.py createsuperuser
