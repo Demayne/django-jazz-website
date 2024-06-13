@@ -10,7 +10,7 @@ WORKDIR /app
 
 # Install system dependencies.
 RUN apt-get update && \
-    apt-get install -y build-essential libpq-dev && \
+    apt-get install -y build-essential libpq-dev dos2unix && \
     apt-get clean
 
 # Copy the requirements.txt file into the /app directory.
@@ -20,19 +20,21 @@ COPY requirements.txt /app/
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
-# Copy the entire mysite project directory into the /app directory.
-COPY mySite /app/mySite
-
-# Copy the manage.py file into the /app directory.
-COPY mySite/manage.py /app/
+# Copy the entire mySite project directory into the /app directory.
+COPY mySite/ /app/
 
 # Copy the entrypoint.sh script into the /app directory.
 COPY entrypoint.sh /app/
 
 # Convert entrypoint.sh to Unix format and add execute permissions.
-RUN apt-get install -y dos2unix && \
-    dos2unix /app/entrypoint.sh && \
+RUN dos2unix /app/entrypoint.sh && \
     chmod +x /app/entrypoint.sh
+
+# Set PYTHONPATH to include /app
+ENV PYTHONPATH=/app
+
+# Set the Django settings module environment variable
+ENV DJANGO_SETTINGS_MODULE=mySite.settings
 
 # Expose the port the app runs on.
 EXPOSE 8000

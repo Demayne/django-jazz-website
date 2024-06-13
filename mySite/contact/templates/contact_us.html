@@ -1,0 +1,71 @@
+{% load static %}
+
+<!--contact_us.html (Template)--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jazzy Disciples</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS from static file -->
+    <link rel="stylesheet" href="{% static 'css/custom_contact.css'%}">
+</head>
+<body>
+    <!--navbar exactly the same as the rest of the website-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% static 'header.css'%}">M10 Productions</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'polls:index'%}">Survey</a> <!-- Added Survey button -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact:contact_us' %}">Contact Us</a> <!-- Added Contact Us button -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_auth:login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_auth:register' %}">Register</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--'''Added a form fo the user to fill in with the queries'''-->
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+            <h1>Contact Us</h1>
+            {% if form_submitted %}
+            <div class="alert alert-success" role="alert">
+                We will get back to you as soon as possible. Thank you for reaching out!
+            </div>
+            {% else %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p>&copy; 2024 M10 Productions. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

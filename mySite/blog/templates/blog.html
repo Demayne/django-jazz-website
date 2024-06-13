@@ -1,0 +1,24 @@
+<!-- templates/blog.html -->
+<!-- blog.html -->
+
+{% extends 'header.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="blog">
+    {% for post in posts %}
+        <div class="post">
+            <h2><a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a></h2>
+            <p>{{ post.body }}</p>
+            <p>{{ post.date }}</p>
+            {% if post.signature %}
+                <div class="signature">
+                    {{ post.signature }}
+                </div>
+            {% endif %}
+            <!-- Add space for images here -->
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
