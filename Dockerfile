@@ -30,9 +30,12 @@ COPY entrypoint.sh /app/
 RUN dos2unix /app/entrypoint.sh && \
     chmod +x /app/entrypoint.sh
 
+<<<<<<< HEAD
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
+=======
+>>>>>>> origin/docs
 # Set PYTHONPATH to include /app
 ENV PYTHONPATH=/app
 
