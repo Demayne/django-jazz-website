@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # Updated Dockerfile
+=======
+>>>>>>> da7bcfbbde14c1ca26c5ec3a6e7c129313fcc839
 # Use the official Python image.
 FROM python:3.11-slim
 
