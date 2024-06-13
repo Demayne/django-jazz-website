@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# Updated Dockerfile
-=======
->>>>>>> da7bcfbbde14c1ca26c5ec3a6e7c129313fcc839
 # Use the official Python image.
 FROM python:3.11-slim
 
@@ -33,6 +29,9 @@ COPY entrypoint.sh /app/
 # Convert entrypoint.sh to Unix format and add execute permissions.
 RUN dos2unix /app/entrypoint.sh && \
     chmod +x /app/entrypoint.sh
+
+# Collect static files
+RUN python manage.py collectstatic --noinput
 
 # Set PYTHONPATH to include /app
 ENV PYTHONPATH=/app
